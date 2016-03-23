@@ -1,0 +1,34 @@
+<templateSet group="Android">
+  <template name="onclickswitch" value="int id = $view$.getId();&#10;        switch (id) {&#10;            case R.id.$id1$:&#10;              break;&#10;            case R.id.$id2$:&#10;               break;&#10;            case R.id.$id3$:&#10;                break;            &#10;        }" description="Create Switch for clicked view in onClick method" toReformat="true" toShortenFQNames="true">
+    <variable name="view" expression="complete()" defaultValue="&quot;view&quot;" alwaysStopAt="true" />
+    <variable name="id1" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="id2" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="id3" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="adapterrecycler" value="private class MyAdapter extends RecyclerView.Adapter&lt;MyAdapter.MyViewHolder&gt; {&#10;Context mContext;&#10;&#10;        public MyAdapter(Context context) {           &#10;            mContext = context;&#10;        }&#10;&#10;        @Override&#10;        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {&#10;            View mainView = LayoutInflater.from(mContext).inflate(R.layout.$id$, parent, false);&#10;            return new MyViewHolder(mainView);&#10;        }&#10;&#10;        @Override&#10;        public void onBindViewHolder(MyViewHolder holder, int position) {&#10;        }&#10;&#10;        @Override&#10;        public int getItemCount() {&#10;            return 0;&#10;        }&#10;&#10;        public class MyViewHolder extends RecyclerView.ViewHolder {&#10;&#10;            public MyViewHolder(View itemView) {&#10;                super(itemView);&#10;            }&#10;        }&#10;    }" description="Adapter template for recycler view" toReformat="true" toShortenFQNames="true">
+    <variable name="id" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="false" />
+      <option name="JAVA_STATEMENT" value="false" />
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="mytoast" value="protected void showToast(String message){&#10;if(mToast != null) {&#10;mToast.cancel();&#10;}&#10;mToast = Toast.makeText($className$.this, message, Toast.LENGTH_LONG);&#10;mToast.show();&#10;}" description="Show toast method" toReformat="true" toShortenFQNames="true">
+    <variable name="className" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="false" />
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="openactivity" value="Intent $intent$ = new Intent($className$.this, $activityName$.class);&#10;                startActivity($intent$);" description="Intent to open activity from within this project" toReformat="true" toShortenFQNames="true">
+    <variable name="intent" expression="" defaultValue="&quot;openActivityIntent&quot;" alwaysStopAt="true" />
+    <variable name="className" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="activityName" expression="complete()" defaultValue="&quot;NewActivity&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>
